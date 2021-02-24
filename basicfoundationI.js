@@ -21,17 +21,32 @@ function Mynumbers(){
 console.log(Mynumbers());
 
 // 2. Get even 1000 - Write a function that would get the sum of all the even numbers from 1 to 1000.  You may use a modulus operator for this exercise.
-// function Sumtotal(){
-//     var sum =0;
-//     for( i= 1; i<= 1000; i++){
-//         if( i % 2 ==0){
-//         sum= sum +i; 
-//         }
-//     }
-//     return sum;
-// }
-// console.log(Sumtotal());
+function Sumtotal(){
+    var sum =0;
+    // sum is a variable we are going to add all even numbers from 1 -1000
+    for( i= 1; i<= 1000; i++){
+        // then we create a for loop to run through all even numbers only 1- 1000, and increment by i++, thats one
+        if( i % 2 ==0){
+            // and if i can be divided by 2 with no remainder... 
+        sum= sum +i; 
+        // change sum to be sum + what i is, when i is an odd number, it will not add to sum. this function runs through till i is 1000, the for loop breaks, the function returns sum, and ends th function.
+        }
+    }
+    return sum;
+}
+console.log(Sumtotal());
+// 250500
 
+// add all numbers between 1 and 100 together,
+function Allnums(){
+    var tot = 0;
+    for( i=0; i<=100; i++){
+        tot = tot + i;
+    }
+    return tot;
+}
+console.log(Allnums())
+// 5050
 
 // 3. Sum odd 5000 - Write a function that returns the sum of all the odd numbers from 1 to 5000. (e.g. 1+3+5+...+4997+4999).
 
