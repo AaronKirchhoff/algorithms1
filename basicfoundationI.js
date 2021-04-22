@@ -50,17 +50,32 @@ console.log(Allnums())
 
 // 3. Sum odd 5000 - Write a function that returns the sum of all the odd numbers from 1 to 5000. (e.g. 1+3+5+...+4997+4999).
 
-// function Sumtotal(){
-//     var sum =0;
-//     for( i= 0; i<= 5000; i++){
-//         if( i % 2 ==1){
-//         sum= sum +i; 
-//         }
-//     }
-//     return sum;
-// }
-// console.log(Sumtotal());
+function Sumtotal(){
+    var sum =0;
+    for( i= 0; i<= 5000; i++){
+        if( i % 2 ==1){
+        sum= sum +i; 
+        }
+    }
+    return sum;
+}
+console.log(Sumtotal());
 //6250000
+
+// add all the even numbers together, but without the modulous operator
+function noModTotal(){
+    var nm = 0;
+    var myArray = [];
+    for (i=0; i<=50; i+=2){
+        myArray.push(i);
+        nm = nm +i;
+    }
+    // console.log(myArray);
+    return myArray;
+    return nm;
+
+}
+console.log(noModTotal());
 
 
 // 4. Iterate an array - Write a function that returns the sum of all the values within an array. (e.g. [1,2,5] returns 8. [-5,2,5,12] returns 14).
@@ -78,16 +93,16 @@ console.log(Allnums())
 
 // 5. Find max - Given an array with multiple values, write a function that returns the maximum number in the array. (e.g. for [-3,3,5,7] max is 7)
 
-// function findmax(numArr){
-//     var max = numArr[0];
-//     for (var i=0; i< numArr.length; i++){
-//         if (numArr[i] > max){
-//             max = numArr[i]
-//         }
-//     }
-//     return max;    
-// }
-// console.log(findmax([7, -9, 43, 11, 2]));
+function findmax(numArr){
+    var max = numArr[0];
+    for (var i=0; i< numArr.length; i++){
+        if (numArr[i] > max){
+            max = numArr[i]
+        }
+    }
+    return max;    
+}
+console.log(findmax([7, -9, 43, 11, 2]));
 
 
 //6.  Find average - Given an array with multiple values, write a function that returns the average of the values in the array. (e.g. for [1,3,5,7,20] average is 7.2)
@@ -194,3 +209,23 @@ console.log(Allnums())
 //     console.log(arr);
 // }
 // noNegativesDojo([4,-2, 3, -6,-8]);
+
+
+// CODILITY TEST 4/21/21
+
+// write a function that returns the smallest possible integer not present in the array.
+function solution(A) {
+    var myNum = A[0];
+    var lowNum = 0;
+for(var i=0; i< A.length; i++){
+    if(A[i]<=myNum){
+        myNum = A[i];
+    }
+
+
+}
+return lowNum;
+
+}
+console.log(solution([2,1,4,6,8]));
+// should return 3
