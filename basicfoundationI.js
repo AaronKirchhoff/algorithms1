@@ -10,9 +10,9 @@
 // var y=numlong();
 // console.log(y);
 
-function Mynumbers(){
-    var Thisarray=[];
-    for(i=1; i<=30; i++){
+function Mynumbers() {
+    var Thisarray = [];
+    for (i = 1; i <= 30; i++) {
         Thisarray.push(i);
     }
     return Thisarray;
@@ -21,15 +21,15 @@ function Mynumbers(){
 console.log(Mynumbers());
 
 // 2. Get even 1000 - Write a function that would get the sum of all the even numbers from 1 to 1000.  You may use a modulus operator for this exercise.
-function Sumtotal(){
-    var sum =0;
+function Sumtotal() {
+    var sum = 0;
     // sum is a variable we are going to add all even numbers from 1 -1000
-    for( i= 1; i<= 1000; i++){
+    for (i = 1; i <= 1000; i++) {
         // then we create a for loop to run through all even numbers only 1- 1000, and increment by i++, thats one
-        if( i % 2 ==0){
+        if (i % 2 == 0) {
             // and if i can be divided by 2 with no remainder... 
-        sum= sum +i; 
-        // change sum to be sum + what i is, when i is an odd number, it will not add to sum. this function runs through till i is 1000, the for loop breaks, the function returns sum, and ends th function.
+            sum = sum + i;
+            // change sum to be sum + what i is, when i is an odd number, it will not add to sum. this function runs through till i is 1000, the for loop breaks, the function returns sum, and ends th function.
         }
     }
     return sum;
@@ -38,9 +38,9 @@ console.log(Sumtotal());
 // 250500
 
 // add all numbers between 1 and 100 together,
-function Allnums(){
+function Allnums() {
     var tot = 0;
-    for( i=0; i<=100; i++){
+    for (i = 0; i <= 100; i++) {
         tot = tot + i;
     }
     return tot;
@@ -50,11 +50,11 @@ console.log(Allnums())
 
 // 3. Sum odd 5000 - Write a function that returns the sum of all the odd numbers from 1 to 5000. (e.g. 1+3+5+...+4997+4999).
 
-function Sumtotal(){
-    var sum =0;
-    for( i= 0; i<= 5000; i++){
-        if( i % 2 ==1){
-        sum= sum +i; 
+function Sumtotal() {
+    var sum = 0;
+    for (i = 0; i <= 5000; i++) {
+        if (i % 2 == 1) {
+            sum = sum + i;
         }
     }
     return sum;
@@ -63,16 +63,16 @@ console.log(Sumtotal());
 //6250000
 
 // add all the even numbers together, but without the modulous operator
-function noModTotal(){
+function noModTotal() {
     var nm = 0;
     var myArray = [];
-    for (i=0; i<=50; i+=2){
+    for (i = 0; i <= 50; i += 2) {
         myArray.push(i);
-        nm = nm +i;
+        nm = nm + i;
     }
     // console.log(myArray);
     return myArray;
-    return nm;
+    // return nm;
 
 }
 console.log(noModTotal());
@@ -93,14 +93,14 @@ console.log(noModTotal());
 
 // 5. Find max - Given an array with multiple values, write a function that returns the maximum number in the array. (e.g. for [-3,3,5,7] max is 7)
 
-function findmax(numArr){
+function findmax(numArr) {
     var max = numArr[0];
-    for (var i=0; i< numArr.length; i++){
-        if (numArr[i] > max){
+    for (var i = 0; i < numArr.length; i++) {
+        if (numArr[i] > max) {
             max = numArr[i]
         }
     }
-    return max;    
+    return max;
 }
 console.log(findmax([7, -9, 43, 11, 2]));
 
@@ -214,18 +214,50 @@ console.log(findmax([7, -9, 43, 11, 2]));
 // CODILITY TEST 4/21/21
 
 // write a function that returns the smallest possible integer not present in the array.
-function solution(A) {
-    var myNum = A[0];
-    var lowNum = 0;
-for(var i=0; i< A.length; i++){
-    if(A[i]<=myNum){
-        myNum = A[i];
+// fisrt, lets establish the biggest integer in the array.
+// then I want to write a for loop that starts at 0 and runs to that biggest integer, looking for the the first ingeter that does not exixst,
+// that will be the smallest integer in the array.
+// function solution(A) {
+//     var myNum = A[0];
+//     var lowNum = 0;
+//     for (var i = 0; i < A.length; i++) {
+//         if (A[i] >= myNum) {
+//             myNum = A[i];
+//         }
+//     }
+//     for (var t = 1; t <= myNum + 1; t++){
+//         if (!A.includes(t)) {
+//             lowNum = t;
+//             return lowNum;
+//         }
+//     }
+//     return lowNum;
+
+// }
+// console.log(solution([54,5,3,1,9]));
+// console.log(solution([1,2,3]));
+// console.log(solution([-1,-3]));
+// should be 1, cause its greater than 0.
+
+// ************** new puzzle **************
+// that, given a positive integer N, returns the length of its longest binary gap. The function should return 0 if N doesn't contain a binary gap.
+// first i need to convert N to a string of binary. i use the toString(2) method
+// 2nd i need to convert the string to an array so i can look at each integer, i use   var res = str.split(" ");
+
+function solution(N) {
+    // return (N >>> 0).toString(2);
+    var oneCount = 0;
+    var d = (N >>> 0).toString(2);
+    console.log(d);
+    console.log(Array.from('hello'));
+    // console.log(myArray);
+
+    for (var i = 0; i <= d.length; i++) {
+        if (i == 1) {
+            oneCount = oneCount++;
+        }
     }
-
-
-}
-return lowNum;
+    return oneCount;
 
 }
-console.log(solution([2,1,4,6,8]));
-// should return 3
+console.log(solution(1041));
