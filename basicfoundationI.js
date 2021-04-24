@@ -18,7 +18,7 @@ function Mynumbers() {
     return Thisarray;
 }
 // var y= Mynumbers();
-console.log(Mynumbers());
+// console.log(Mynumbers());
 
 // 2. Get even 1000 - Write a function that would get the sum of all the even numbers from 1 to 1000.  You may use a modulus operator for this exercise.
 function Sumtotal() {
@@ -34,7 +34,7 @@ function Sumtotal() {
     }
     return sum;
 }
-console.log(Sumtotal());
+// console.log(Sumtotal());
 // 250500
 
 // add all numbers between 1 and 100 together,
@@ -45,7 +45,7 @@ function Allnums() {
     }
     return tot;
 }
-console.log(Allnums())
+// console.log(Allnums())
 // 5050
 
 // 3. Sum odd 5000 - Write a function that returns the sum of all the odd numbers from 1 to 5000. (e.g. 1+3+5+...+4997+4999).
@@ -59,7 +59,7 @@ function Sumtotal() {
     }
     return sum;
 }
-console.log(Sumtotal());
+// console.log(Sumtotal());
 //6250000
 
 // add all the even numbers together, but without the modulous operator
@@ -75,7 +75,7 @@ function noModTotal() {
     // return nm;
 
 }
-console.log(noModTotal());
+// console.log(noModTotal());
 
 
 // 4. Iterate an array - Write a function that returns the sum of all the values within an array. (e.g. [1,2,5] returns 8. [-5,2,5,12] returns 14).
@@ -102,7 +102,7 @@ function findmax(numArr) {
     }
     return max;
 }
-console.log(findmax([7, -9, 43, 11, 2]));
+// console.log(findmax([7, -9, 43, 11, 2]));
 
 
 //6.  Find average - Given an array with multiple values, write a function that returns the average of the values in the array. (e.g. for [1,3,5,7,20] average is 7.2)
@@ -243,14 +243,16 @@ console.log(findmax([7, -9, 43, 11, 2]));
 // that, given a positive integer N, returns the length of its longest binary gap. The function should return 0 if N doesn't contain a binary gap.
 // first i need to convert N to a string of binary. i use the toString(2) method
 // 2nd i need to convert the string to an array so i can look at each integer, i use   var res = str.split(" ");
+// this works only sometimes...     console.log(Array.from('howdy!'));
+
 
 function solution(N) {
     // return (N >>> 0).toString(2);
     var oneCount = 0;
     var d = (N >>> 0).toString(2);
     console.log(d);
-    console.log(Array.from('hello'));
-    // console.log(myArray);
+    console.log(Array.from(d));
+    
 
     for (var i = 0; i <= d.length; i++) {
         if (i == 1) {
@@ -260,5 +262,35 @@ function solution(N) {
     return oneCount;
 
 }
-console.log(solution(1041));
+// console.log(solution(1041));
 
+// ********* new puzzle , cylcic rotation*************
+// so i know I need a new array, i can create a variable that empty = newArr
+// solution found...https://gist.github.com/k0ff33/3029d30fb4ae62a72b0c54f2cb39893d
+// A.splice adds/ removes elemtns from array, months.splice(1, 0, 'Feb'); says make the 1 index 'Feb', the 0 means deleteCount, nevermid that doesnt work.
+
+
+
+function solution(A, K) {
+    var myArray = [];
+    myArray = A.splice(K).concat(A.slice(0,K));
+    return myArray;
+    }
+    
+    // console.log(solution([2,3,4,5,6], 1));
+// should return [6,2,3,4,5]
+
+// *************** odd occurance in array *******************
+// A non-empty array A consisting of N integers is given. The array contains an odd number of elements, and each element of the array can be paired with another element that has the same value, except for one element that is left unpaired.
+
+// I think what i want to do is take an index, and loop it through the array, comparing it othe rindecies, and if it == that index, stop and move to the next one. if one index != does not equal another, add it to an empty list and return it at the end.
+function solution4(A){
+    var noPair = 0;
+    for (var i = 0; i <=A.length; i++){
+        noPair = A[i];
+    }
+    console.log(i);
+    return noPair;
+
+}
+// console.log(solution4([2,4,6,4,6,2,3]));
