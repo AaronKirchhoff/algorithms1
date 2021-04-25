@@ -284,13 +284,22 @@ function solution(A, K) {
 // A non-empty array A consisting of N integers is given. The array contains an odd number of elements, and each element of the array can be paired with another element that has the same value, except for one element that is left unpaired.
 
 // I think what i want to do is take an index, and loop it through the array, comparing it othe rindecies, and if it == that index, stop and move to the next one. if one index != does not equal another, add it to an empty list and return it at the end.
+// success!!! so the first thing i did was .sort() the array ascending by default.
+// create an empty variable to capture the first odd, no pair intiger in the array.
+// then I looped through starting at 0 index and comparing it the following index...
+// and if they are equal (A[i] === A[i + 1]), then skip the pair, change i to the next intiger, increment by 2. genius!
+// if they are not equal, change the empty variabe to what that index is and return the function, ending it.
 function solution4(A){
+    A.sort();
     var noPair = 0;
-    for (var i = 0; i <=A.length; i++){
-        noPair = A[i];
+    for (var i = 0; i < A.length;){
+        if (A[i] === A[i + 1]) {
+            i = i + 2;
+        } else {
+            noPair = A[i];
+            return noPair;
+        }
     }
-    console.log(i);
-    return noPair;
-
 }
-// console.log(solution4([2,4,6,4,6,2,3]));
+console.log(solution4([2,4,6,4,6,2,9]));
+// should return 9
