@@ -242,27 +242,38 @@ function findmax(numArr) {
 // ************** new puzzle **************
 // that, given a positive integer N, returns the length of its longest binary gap. The function should return 0 if N doesn't contain a binary gap.
 // first i need to convert N to a string of binary. i use the toString(2) method
-// 2nd i need to convert the string to an array so i can look at each integer, i use   var res = str.split(" ");
-// this works only sometimes...     console.log(Array.from('howdy!'));
+// 2nd i need to convert the string to an array so i can look at each integer, i use   Array.from(d);
+// then, I want ed to look at each integer and say, if it is equal to '0', go ahead and add it to the variable oneCount. do this until you hit a 1 in the binary sequence..
+// which takes you to the else statement and pushes that count to our empty array, gapArray. we do this for the whole loop, creating a new array, wiwht a list of gap lengths!
+// then we just create another new variable called max, and loop through the gapArray looking for the biggest number. and we return that number.
+// there is a runtime issue however, that if the binary seqeunce is super long, the resulting array will be too long and cause the computer to freeze running my program.
 
 
-function solution(N) {
-    // return (N >>> 0).toString(2);
+function solution2(N) {
     var oneCount = 0;
+    var gapArray = [];
     var d = (N >>> 0).toString(2);
     console.log(d);
-    console.log(Array.from(d));
-    
-
-    for (var i = 0; i <= d.length; i++) {
-        if (i == 1) {
-            oneCount = oneCount++;
+    var thisArray = Array.from(d);
+    console.log(thisArray);
+    for (var i = 0; i <= thisArray.length; i++) {
+        if (thisArray[i] === '0') {
+            oneCount++;       
+        } else {
+            gapArray.push(oneCount);
+            oneCount = 0;
         }
     }
-    return oneCount;
-
+    var max = gapArray[0];
+    for (var t = 0; t <= gapArray.length; t++) {
+        if (gapArray[t] > max) {
+            max = gapArray[t];
+        }
+    }
+    return max;
 }
-// console.log(solution(1041));
+console.log(solution2(15));
+// shpuold return 5
 
 // ********* new puzzle , cylcic rotation*************
 // so i know I need a new array, i can create a variable that empty = newArr
@@ -273,11 +284,11 @@ function solution(N) {
 
 function solution(A, K) {
     var myArray = [];
-    myArray = A.splice(K).concat(A.slice(0,K));
+    myArray = A.splice(K).concat(A.slice(0, K));
     return myArray;
-    }
-    
-    // console.log(solution([2,3,4,5,6], 1));
+}
+
+// console.log(solution([2,3,4,5,6], 1));
 // should return [6,2,3,4,5]
 
 // *************** odd occurance in array *******************
@@ -289,10 +300,10 @@ function solution(A, K) {
 // then I looped through starting at 0 index and comparing it the following index...
 // and if they are equal (A[i] === A[i + 1]), then skip the pair, change i to the next intiger, increment by 2. genius!
 // if they are not equal, change the empty variabe to what that index is and return the function, ending it.
-function solution4(A){
+function solution4(A) {
     A.sort();
     var noPair = 0;
-    for (var i = 0; i < A.length;){
+    for (var i = 0; i < A.length;) {
         if (A[i] === A[i + 1]) {
             i = i + 2;
         } else {
@@ -301,5 +312,5 @@ function solution4(A){
         }
     }
 }
-console.log(solution4([2,4,6,4,6,2,9]));
+// console.log(solution4([2,4,6,4,6,2,9]));
 // should return 9
